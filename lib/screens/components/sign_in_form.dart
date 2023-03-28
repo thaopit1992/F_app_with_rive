@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 
+import '../../entry_point.dart';
+
 class SignInForm extends StatefulWidget {
   const SignInForm({
     Key? key,
@@ -18,10 +20,10 @@ class _SignInFormState extends State<SignInForm> {
   bool isShowConfetti = false;
 
   late SMITrigger check; // ảnh check
-  late SMITrigger error; // ảnh lỗi 
-  late SMITrigger reset;  // ảnh reset
+  late SMITrigger error; // ảnh lỗi
+  late SMITrigger reset; // ảnh reset
 
-  late SMITrigger confetti;  // ảnh 
+  late SMITrigger confetti; // ảnh hoa giấy
 
   StateMachineController getRiveController(Artboard artboard) {
     StateMachineController? controller =
@@ -50,9 +52,17 @@ class _SignInFormState extends State<SignInForm> {
               // After closing it want to show the confetti animation
               // First let's add the animation
               // restart it
-              confetti.fire(); 
-              // Once all success we will navigate to the Next screen
-              // TODO: Navigate to next screen
+              confetti.fire();
+              Future.delayed(
+                Duration(seconds: 1),
+                () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EntryPoint(),
+                      ));
+                },
+              );
             },
           );
         } else {
