@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        bottom: false,
+        bottom: false, // full màn hình bên dưới các thanh bottom navigation bar
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.black, fontWeight: FontWeight.w600),
                 ),
               ),
+              // scroll item ngang
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -90,20 +91,20 @@ class SecondaryCourseCard extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                 ),
-                Text(
+                const Text(
                   "Watch video - 15 mins",
                   style: TextStyle(color: Colors.white60, fontSize: 16),
                 )
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
             child: VerticalDivider(
               color: Colors.white70,
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           SvgPicture.asset(course.iconSrc)
         ],
       ),
